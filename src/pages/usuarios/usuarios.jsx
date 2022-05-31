@@ -115,7 +115,7 @@ export default function ListarUsuarios() {
     const notyf = new Notyf();
 
     function DeletarUsuario(idUsuario) {
-        axios.delete('http://backend-saf-api.azurewebsites.net/api/Usuarios/Deletar/' + idUsuario)
+        axios.delete('https://backend-saf-api.azurewebsites.net/api/Usuarios/Deletar/' + idUsuario)
             .then(resposta => {
                 if (resposta.status === 204) {
                     notyf.success(
