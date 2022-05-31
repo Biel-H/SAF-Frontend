@@ -10,11 +10,12 @@ import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const Modal = ({ onClose = () => { } }) => {
 
+    const [TipoCheckList, setTipoCheckList] = useState([]); //Listar tipo do checklist para concatenar com o modal
     const [ListaChecklistCorrecao, setListaChecklistCorrecao] = useState([]);
 
 
     function buscarChecklistCorrecaoPorId() {
-        axios('http://backend-saf-api.azurewebsites.net/api/Correcao/Checklist/1',)
+        axios('https://backend-saf-api.azurewebsites.net/api/Correcao/Checklist/1',)
             .then(response => {
                 if (response.status === 200) {
                     setListaChecklistCorrecao(response.data);

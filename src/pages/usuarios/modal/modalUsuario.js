@@ -9,26 +9,27 @@ import MaskedInput from '../../login/MaskedInput';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const Modal = ({ onClose = () => { }, children }) => {
 
     const notyf = new Notyf();
 
-    // const initialValues = {
-    //     cpf: '',
-    //     tel: ''
-    // };
+    const initialValues = {
+        cpf: '',
+        tel: ''
+    };
 
-    // const [values, setValues] = useState(initialValues)
+    const [values, setValues] = useState(initialValues)
 
-    // function handleChange(event) {
-    //     setValues({
-    //         ...values,
-    //         [event.target.value]: event.target.value
-    //     });
-    // }
+    function handleChange(event) {
+        setValues({
+            ...values,
+            [event.target.value]: event.target.value
+        });
+    }
 
     //Cadastrar
     const [IdTipoUsuario, setIdTipoUsuario] = useState('');
@@ -45,7 +46,7 @@ const Modal = ({ onClose = () => { }, children }) => {
 
 
     function BuscarForms() {
-        axios.get('http://backend-saf-api.azurewebsites.net/api/TipoUsuarios')
+        axios.get('https://backend-saf-api.azurewebsites.net/api/TipoUsuarios')
             .then(response => {
                 if (response.status === 200)
                     setTiposUsuarios(response.data)
@@ -74,7 +75,7 @@ const Modal = ({ onClose = () => { }, children }) => {
         try {
             axios({
                 method: "post",
-                url: "http://backend-saf-api.azurewebsites.net/api/Usuarios",
+                url: "https://backend-saf-api.azurewebsites.net/api/Usuarios",
                 data: formData,
                 headers: { "Content-Type": "multipart/form-data" },
             })
