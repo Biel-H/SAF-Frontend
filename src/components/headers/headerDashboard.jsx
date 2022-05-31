@@ -94,7 +94,7 @@ export default function Header() {
                         <p className="pCargoUsuario">{CargoUsuario}</p>
                     </div>
 
-                    <Link className="removerLink" onClick={() => Logout()} to='/'>
+                    <Link className="removerLink" onClick={() => Logout()} to='/login'>
                         <FontAwesomeIcon className="iconRightFromBracket" icon={faRightFromBracket} size="lg" />
                     </Link>
                 </div>
