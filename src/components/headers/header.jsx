@@ -65,7 +65,7 @@ export default function Header() {
                     <Link to="/dashboard"><div className="imagemLogo"></div></Link>
                     <div className="linksHeader">
                         <img src={"http://backend-saf-api.azurewebsites.net/Img/" + ImagemUsuario} className="imagemUsuario" />
-                        <Link className="removerLink" onClick={() => Logout()} to='/'>
+                        <Link className="removerLink" onClick={() => Logout()} to='/login'>
                             <FontAwesomeIcon color="#FFF" icon={faRightFromBracket} size="2x"/>
                         </Link>
                     </div>
