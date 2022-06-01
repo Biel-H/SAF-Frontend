@@ -364,6 +364,20 @@ footer {
   align-items: center;
 }
 
+@media screen and (max-width: 2000px) {
+  .WrapperMain {
+    height: 2250px;
+  }
+
+  .wrapperFooter {
+    width: 45%;
+  }
+
+  #ultimoLink {
+    margin-bottom: 17vw;
+  }
+}
+
 @media screen and (max-width: 1890px) {
   .wrapperFooter {
     width: 45%;
@@ -586,7 +600,7 @@ footer {
     font-size: 20px;
     width: 200px;
   }
-  
+
   .wrapperCards {
     width: 60%;
   }

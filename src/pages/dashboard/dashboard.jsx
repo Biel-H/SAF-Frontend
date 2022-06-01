@@ -63,7 +63,7 @@ function Dashboard() {
   const [isModalAddUsuarioVisible, setIsModalAddUsuarioVisible] = useState(false);
 
   return (
-    <div>
+    <div className='WrapperMain'>
 
       <Sidebar />
       <HeaderDashboard />
