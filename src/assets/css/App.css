@@ -365,10 +365,6 @@ footer {
 }
 
 @media screen and (max-width: 2000px) {
-  .WrapperMain {
-    height: 2250px;
-  }
-
   .wrapperFooter {
     width: 45%;
   }
@@ -561,7 +557,18 @@ footer {
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1060px) {
+  .aberto {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+  .fechado {
+    display: none;
+  }
+  
   .wrapperCards {
     width: 65%;
     margin-left: 240px;

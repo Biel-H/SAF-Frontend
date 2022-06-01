@@ -11,23 +11,28 @@ import { faTruckArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faListCheck } from '@fortawesome/free-solid-svg-icons'
 
-class Sidebar extends Component {
+export default function Sidebar() {
 
-    render() {
-        return (
-            <div>
-                <nav>
-                    <div className="links">
-                        <div id="primeiroLink" className="link1"><Link to="/veiculos"><FontAwesomeIcon icon={faTruck} color="#0E758C" size="lg" /></Link></div>
-                        <div className="link2"><Link to="/carrocerias"><FontAwesomeIcon icon={faTruckRampBox} color="#0E758C" size="lg" /></Link></div>
-                        <div className="link1"><Link to="/cargas"><FontAwesomeIcon icon={faTruckArrowRight} color="#0E758C" size="lg" /></Link></div>
-                        <div className="link2"><Link to="/usuarios"><FontAwesomeIcon icon={faUsers} color="#0E758C" size="lg" /></Link></div>
-                        <div id="ultimoLink" className="link1 linkUltimo"><Link to="/checklists"><FontAwesomeIcon icon={faListCheck} color="#0E758C" size="lg" /></Link></div>
-                    </div>
-                </nav>
-            </div>  
-        );
-    };
-}
+    function fecharNav() {
+        const bar = document.getElementsByTagName('nav')
+        for (var i = 0; i < bar.length; i += 1) {
+            bar[i].style.display = 'none';
+        }
 
-export default Sidebar;
+    }
+
+    return (
+        <div>
+            <nav>
+                <div className="links">
+                    <div className="aberto" onClick={fecharNav} />
+                    <div className="link1"><Link to="/veiculos"><FontAwesomeIcon icon={faTruck} color="#0E758C" size="lg" /></Link></div>
+                    <div className="link2"><Link to="/carrocerias"><FontAwesomeIcon icon={faTruckRampBox} color="#0E758C" size="lg" /></Link></div>
+                    <div className="link1"><Link to="/cargas"><FontAwesomeIcon icon={faTruckArrowRight} color="#0E758C" size="lg" /></Link></div>
+                    <div className="link2"><Link to="/usuarios"><FontAwesomeIcon icon={faUsers} color="#0E758C" size="lg" /></Link></div>
+                    <div className="link1 linkUltimo"><Link to="/checklists"><FontAwesomeIcon icon={faListCheck} color="#0E758C" size="lg" /></Link></div>
+                </div>
+            </nav>
+        </div>
+    );
+};
