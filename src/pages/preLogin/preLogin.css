@@ -174,11 +174,14 @@ button.btnPreLogin::after {
 }
 
 @media screen and (max-width: 2000px) {
+    .cardPreLogin {
+        height: 380px;
+    }
+
     .pImg {
-        /* width: 320px; */
+        width: 330px;
         margin: 0 auto;
         font-size: 19px;
-        
     }
 }
 
