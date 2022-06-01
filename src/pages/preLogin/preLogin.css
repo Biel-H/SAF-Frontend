@@ -173,6 +173,11 @@ button.btnPreLogin::after {
     margin: 0 auto;
 }
 
+@media screen and (max-width: 1880px) {
+    .backgroundPreLogin {
+        height: 900px;
+    }
+}
 
 @media screen and (max-width: 1660px) {
     .cardsPreLogin {
@@ -188,7 +193,7 @@ button.btnPreLogin::after {
 
 @media screen and (max-width: 1284px) {
     .backgroundPreLogin {
-        height: auto;
+        height: 980px;
     }
 
     .cardPreLogin {
@@ -205,15 +210,26 @@ button.btnPreLogin::after {
     .cardPreLogin {
         height: 440px;
     }
+    .pImg {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 1032px) {
+    .backgroundPreLogin {
+        height: 1000px;
+    }
+
     .cardPreLogin {
         height: 470px;
     }
 }
 
 @media screen and (max-width: 883px) {
+    .backgroundPreLogin {
+        height: 1050px;
+    }
+
     .cardPreLogin {
         height: 490px;
     }
@@ -221,8 +237,10 @@ button.btnPreLogin::after {
 
 @media screen and (max-width: 809px) {
     .backgroundPreLogin {
+        height: 1890px;
         width: 800px;
     }
+    
     .linksPreLogin {
         width: 800px;
         margin: 0 auto;
@@ -255,7 +273,7 @@ button.btnPreLogin::after {
 
 @media screen and (max-width: 787px) {
     .backgroundPreLogin {
-        height: auto;
+        height: 1870px;
     }
 
     .h1PreLogin {
@@ -288,7 +306,7 @@ button.btnPreLogin::after {
 @media screen and (max-width: 360px) {
     .backgroundPreLogin {
         width: 800px;
-        height: 1880px;
+        height: 2000px;
     }
 
     .h1PreLogin {
