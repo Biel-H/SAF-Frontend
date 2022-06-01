@@ -57,12 +57,36 @@
     filter: drop-shadow(7px 7px 6px rgba(0, 0, 0, 0.6));
 }
 
-.btnPreLogin::after {
-    content: none;
+button:hover {
+    color: #fff;
 }
 
-.btnPreLogin:hover {
-    color: #0E758C;
+button::after {
+    content: "";
+    background: #0E758C;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    position: absolute;
+    display: block;
+}
+
+button[class^="btnPreLogin"]::after {
+    transition: all 0.35s;
+}
+
+button[class^="btnPreLogin"]:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+}
+
+button.btnPreLogin::after {
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
 }
 
 .h1PreLogin {
@@ -102,12 +126,6 @@
     transform: scale(1.1);
 }
 
-.cardPreLogin>p {
-    text-align: center;
-    width: 350px;
-    margin: 0 auto;
-}
-
 .footerPreLogin {
     background-color: unset;
     width: 350px;
@@ -118,30 +136,41 @@
 }
 
 .img1 {
-    width: 200px;
-    height: 200px;
-    margin: 20px auto 10px;
-    background-image: url("../../assets/imgs/IMGCheckList.png");
+    width: 180px;
+    height: 170px;
+    margin: 30px auto 20px;
+    border-radius: 5px;
+    background-image: url("../../assets/imgs/IconChecklist\ 1.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .img2 {
-    width: 200px;
-    height: 200px;
-    margin: 20px auto 10px;
-    background-image: url("../../assets/imgs/IMGCheckList.png");
+    width: 150px;
+    height: 150px;
+    margin: 40px auto 30px;
+    border-radius: 5px;
+    background-image: url("../../assets/imgs/ComparacaoIMGs\ 1.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .img3 {
-    width: 200px;
-    height: 200px;
-    margin: 20px auto 10px;
-    background-image: url("../../assets/imgs/IMGOCR.png");
+    width: 150px;
+    height: 150px;
+    margin: 40px auto 30px;
+    background-image: url("../../assets/imgs/OCRimg.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.pImg {
+    color: #0C1829;
+    font-size: 21px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    width: 350px;
+    margin: 0 auto;
 }
 
 

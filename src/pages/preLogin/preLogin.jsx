@@ -25,16 +25,16 @@ export default function PreLogin() {
             <main>
                 <div className="cardsPreLogin">
                     <div className="cardPreLogin">
-                        <div className="imgCard img1" />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente excepturi iste corporis quos libero voluptate aut consequatur, facere eveniet fugit accusamus ab blanditiis ad quaerat numquam, quam quo dignissimos?</p>
+                        <div className="img1" />
+                        <p className="pImg">Utilização de Checklists para melhor controle da sua frota quanto ao estado dos veículos que entram e saem para trajetos.</p>
                     </div>
                     <div className="cardPreLogin">
-                        <div className="imgCard img2"/>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente excepturi iste corporis quos libero voluptate aut consequatur, facere eveniet fugit accusamus ab blanditiis ad quaerat numquam, quam quo dignissimos?</p>
+                        <div className="img2"/>
+                        <p className="pImg">Comparação de imagens para verificação do estado dos veículos, utilizando uma análise de correspondência entre as imagens.</p>
                     </div>
                     <div className="cardPreLogin">
-                        <div className="imgCard img3" />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente excepturi iste corporis quos libero voluptate aut consequatur, facere eveniet fugit accusamus ab blanditiis ad quaerat numquam, quam quo dignissimos?</p>
+                        <div className="pImg" className="img3" />
+                        <p className="pImg">Para uma rápida conferência de um veículo de uma Checklist pode-se utilizar o serviço cognitivo OCR para leitura da placas.</p>
                     </div>
                 </div>
             </main>
