@@ -177,7 +177,8 @@ button.btnPreLogin::after {
     .pImg {
         /* width: 320px; */
         margin: 0 auto;
-        background-color: red;
+        font-size: 19px;
+        
     }
 }
 
