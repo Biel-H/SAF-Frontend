@@ -1,6 +1,6 @@
 .modalUsuario {
     width: 100%;
-    height: 385vh;
+    height: 324vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
     background-color: #fff;
     width: 90%;
     color: #000;
-    height: 16%;
+    height: 20%;
     position: absolute;
     top: 4.5%;
     border-radius: 10px;
@@ -34,6 +34,7 @@
 .inputUsuario {
     margin: 40px 0;
     height: 30px;
+    width: 60%;
     color: #000;
     background-color: white;
     font-size: 25px;
@@ -47,10 +48,22 @@
     outline: 0;
 } 
 
+.teste {
+    color: #00000048;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
 .inputUsuario::placeholder {
     text-align: center;
     font-size: 25px;
-    color: #00000048;
+    color: #000;
+}
+
+.optionSelect {
+    color: #000;
 }
 
 .btn_cadastroUsuario {

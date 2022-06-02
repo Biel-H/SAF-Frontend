@@ -177,13 +177,6 @@ export default function Checklists() {
                                     <div className="etiquetaCabecalhoChecklist">
                                         <div className="nomeCabecalhoEtiquetaChecklist">Placa</div>
                                     </div>
-                                    <div className="etiquetaCabecalhoChecklist" onClick={() => setListaChecklistErro()}>
-                                        <p className="nomeCabecalhoEtiquetaChecklist">Erros</p>
-                                    </div>
-
-                                    <div className="etiquetaCabecalhoChecklist" >
-                                        <p className="nomeCabecalhoEtiquetaChecklist">Correções</p>
-                                    </div>
 
                                     <div className="etiquetaCabecalhoChecklist">
                                         <p className="nomeCabecalhoEtiquetaChecklist">Data</p>

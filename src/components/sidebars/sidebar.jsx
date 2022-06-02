@@ -18,7 +18,6 @@ export default function Sidebar() {
         for (var i = 0; i < bar.length; i += 1) {
             bar[i].style.display = 'none';
         }
-
     }
 
     return (

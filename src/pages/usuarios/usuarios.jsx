@@ -140,7 +140,7 @@ export default function ListarUsuarios() {
     // const [isModalEditUsuarioVisible, setIsModalEditUsuarioVisible] = useState(false);
 
     return (
-        <div>
+        <div className ="teste">
             <Sidebar4 />
             <Header />
 
@@ -149,7 +149,7 @@ export default function ListarUsuarios() {
                     <p className="pUsuario">Usuários</p>
 
                     <div className="input-e-btn">
-                        <button className='btnAddUsuario' type='submit' onClick={() => setIsModalAddUsuarioVisible(true)}>
+                        <button className='btnAddUsuario' type='submit' onClick={() => setIsModalAddUsuarioVisible(true)} >
                             <div className="conteudoBtnAddUsuario">
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
                                 <p className="pAddUsuario">Novo usuário</p>

@@ -155,11 +155,11 @@ const Modal = ({ onClose = () => { }, children }) => {
                             </div>
                             <div className='inputs-dir'>
                                 <input className='inputUsuario' type='text' name='sobrenome' placeholder='Sobrenome' required onChange={(e) => setSobrenome(e.target.value)} />
-                                <select className='inputUsuario selectUsuario' type='text' name='Tipo de Usuário' onChange={(e) => setIdTipoUsuario(e.target.value)}>
+                                <select className='inputUsuario' type='text' name='Tipo de Usuário' onChange={(e) => setIdTipoUsuario(e.target.value)}>
                                     <option value='0' disabled selected >Tipo de usuário</option>
                                     {TiposUsuarios.map((tipoUsuario) => {
                                         return (
-                                            <option key={tipoUsuario.idTipoUsuario} value={tipoUsuario.idTipoUsuario}>
+                                            <option className="optionSelect" key={tipoUsuario.idTipoUsuario} value={tipoUsuario.idTipoUsuario}>
                                                 {tipoUsuario.nomeTipoUsuario}
                                             </option>
                                         )
