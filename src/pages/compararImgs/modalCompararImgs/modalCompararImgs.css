@@ -1,0 +1,95 @@
+.modalCargas {
+    width: 100%;
+    height: 385vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    backdrop-filter: brightness(60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapperModalComparacao {
+    background-color: #fff;
+    width: 50%;
+    color: #000;
+    height: 12%;
+    position: absolute;
+    top: 5%;
+    border-radius: 10px;
+}
+
+.headerModal {
+    width: 95%;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pHeaderModal {
+    font-size: 45px;
+    font-weight: 700;
+    color: #0E758C;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+}
+
+.h2Modal {
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    margin: 70px auto 70px;
+}
+
+.btn_confirmacao1, .btn_confirmacao2 {
+    width: 180px;
+    overflow: visible;
+    height: 60px;
+    border: none;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.btn_confirmacao1 {
+    background-color: green;
+}
+
+.btn_confirmacao2 {
+    background-color: red;
+}
+
+.btn_confirmacao:hover {
+    opacity: 0.9;
+}
+
+.btn_confirmacao1::after, .btn_confirmacao2::after {
+    display: none;
+}
+
+.pBtnConfirmacao {
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.btns_confirmacao {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}

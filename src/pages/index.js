@@ -17,8 +17,8 @@ import Usuarios from './pages/usuarios/usuarios';
 import Carrocerias from './pages/carrocerias/carroceria';
 import ListarCarga from './pages/cargas/cargas';
 import Checklists from './pages/checklists/checklist';
-import Comparacao from './pages/compararImgs/compararImgs';
 import NotFound from './pages/notFound/notFound';
+import ComparacaoImgs from './pages/compararImgs/compararImgs';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -35,7 +35,7 @@ const routing = (
         <Route path="/cargas" component={ListarCarga} />
         <Route path="/usuarios" component={Usuarios} />
         <Route path="/checklists" component={Checklists} />
-        <Route path="/compararImgs" component={Comparacao} />
+        <Route path="/compararImgs" component={ComparacaoImgs} />
         <Route path="/notFound" component={NotFound} />
         <Redirect to="/notFound" />
       </Switch>
