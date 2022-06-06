@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 
@@ -13,6 +15,7 @@ import './checklist.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { useUpdateEffect } from 'rsuite/esm/utils';
 
 
@@ -79,22 +82,13 @@ export default function Checklists() {
     }
 
     function buscarChecklists() {
-        axios('https://backend-saf-api.azurewebsites.net/api/CheckList/ListarMenoresCorrespondentes/70',)
+        axios('https://backend-saf-api.azurewebsites.net/ListarMenoresCorrespondentes/70',)
             .then(response => {
                 if (response.status === 200) {
-                    console.log(response.data)
-                    // setListaChecklist(response.data);
+                    setListaChecklist(response.data);
                 }
             })
             .catch(erro => console.log(erro));
-
-            // axios('https://backend-saf-api.azurewebsites.net/api/CheckList/ListagemMenoresCorrespondentes/' + Percentual,)
-            // .then(response => {
-            //     if (response.status === 200) {
-            //         console.log(response.data)
-            //     }
-            // })
-            // .catch(erro => console.log(erro));
 
         axios.get('https://backend-saf-api.azurewebsites.net/api/Veiculos')
             .then(response => {
@@ -162,6 +156,9 @@ export default function Checklists() {
                                     <div className="etiquetaCabecalhoChecklist">
                                         <p className="nomeCabecalhoEtiquetaChecklist">Percentual</p>
                                     </div>
+                                    <div className="etiquetaCabecalhoChecklist">
+                                        <p className="nomeCabecalhoEtiquetaChecklist"></p>
+                                    </div>
                                 </div>
                                 <div className="iconesEtiquetaChecklist" />
                             </div>
@@ -171,7 +168,7 @@ export default function Checklists() {
                     {
                         ListaCheckList.map((checklist) => {
                             return (
-                                <div className={checklist.idVeiculoNavigation.placa}>
+                                <div className={checklist.idVeiculo}>
                                     <div className="cardChecklist">
                                         <div className="conteudoChecklist">
                                             <div className="alinharEtiquetasChecklist">
@@ -190,8 +187,25 @@ export default function Checklists() {
                                                             year: 'numeric', month: 'numeric', day: 'numeric'
                                                         }).format(new Date(checklist.dataCheckList))}</p>
                                                     </div>
-                                                    <div className="etiquetaChecklist">
-                                                        <p className="nomeEtiquetaChecklist">Percentual</p>
+                                                    <div className="etiquetaChecklist" style={{ backgroundColor: 'red' }}>
+
+                                                        {checklist.porcentagemFrontal < checklist.porcentagemTraseira && checklist.porcentagemFrontal < checklist.porcentagemLateralDireita && checklist.porcentagemFrontal < checklist.porcentagemLateralEsquerda ?
+                                                            <p className="nomeEtiquetaChecklist">{checklist.porcentagemFrontal}%</p>
+                                                            :
+                                                            checklist.porcentagemTraseira < checklist.porcentagemFrontal && checklist.porcentagemTraseira < checklist.porcentagemLateralDireita && checklist.porcentagemTraseira < checklist.porcentagemLateralEsquerda ?
+                                                                <p className="nomeEtiquetaChecklist">{checklist.porcentagemTraseira}%</p>
+                                                                :
+                                                                checklist.porcentagemLateralDireita < checklist.porcentagemTraseira && checklist.porcentagemLateralDireita < checklist.porcentagemLateralEsquerda && checklist.porcentagemLateralDireita < checklist.porcentagemFrontal ?
+                                                                    <p className="nomeEtiquetaChecklist">{checklist.porcentagemLateralDireita}%</p>
+                                                                    :
+                                                                    <p className="nomeEtiquetaChecklist">{checklist.porcentagemLateralEsquerda}%</p>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                                <div className='iconeSeta'>
+                                                    <div className="nomeEtiquetaChecklist">
+                                                        <Link to="/compararImgs"><FontAwesomeIcon className="iconeSeta" icon={faArrowAltCircleRight} style={{ cursor: 'pointer', color: '#0E758C' }}></FontAwesomeIcon></Link>
                                                     </div>
                                                 </div>
                                             </div>

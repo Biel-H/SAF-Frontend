@@ -179,6 +179,16 @@ body {
     justify-content: center;
 }
 
+.iconeSeta {
+    width: 170px;
+    height: 60px;
+    border-radius: 10px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .nomeEtiquetaChecklist {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;

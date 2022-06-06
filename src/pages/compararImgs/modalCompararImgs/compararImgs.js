@@ -18,7 +18,8 @@ const Modal = ({ onClose = () => { } }) => {
 
     async function AlterarStatusVeiculo() {
 
-        axios('')
+        axios.patch('https://backend-saf-api.azurewebsites.net/AtualizarStatus/3',
+        )
             .then(response => {
                 setAlterarEstado(response.data)
                 onClose()
@@ -36,10 +37,10 @@ const Modal = ({ onClose = () => { } }) => {
     }
 
     return (
-        <div className="modal">
+        <div className="modalComparacao">
             <div className="wrapperModalComparacao">
-                <div className="headerModal">
-                    <p className="pHeaderModal">REVISAR VEÍCULO</p>
+                <div className="headerModalComparacao">
+                    <p className="pHeaderModalComparacao">REVISAR VEÍCULO</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className='h2Modal'>

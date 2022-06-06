@@ -120,9 +120,9 @@ export default function Modal({ onClose = () => { } }) {
     useEffect(() => { BuscarForms() }, []);
 
     return (
-        <div className="modalVeiculoDashboard">
+        <div className="modalVeiculo">
             <div className="wrapperModalVeiculoDashboard">
-                <div className="headerModal">
+                <div className="headerModalVeiculo">
                     <p className="pHeaderModal">ADICIONAR VEÍCULO</p>
                     <FontAwesomeIcon onClick={onClose} className="iconClose" icon={faClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
