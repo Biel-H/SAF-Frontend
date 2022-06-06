@@ -6,7 +6,6 @@ import Sidebar1 from '../../components/sidebars/sidebar1';
 import Footer from '../../components/footer';
 
 import ModalAddVeiculo from '../veiculos/modal/modalVeiculo';
-import ModalEditVeiculo from '../veiculos/modalEdit/modalEditVeiculo';
 
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -16,7 +15,6 @@ import './veiculos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { useUpdateEffect } from 'rsuite/esm/utils';
 
 export default function ListarVeiculos() {
@@ -107,17 +105,10 @@ export default function ListarVeiculos() {
             })
     }
 
-    function AlterarLocal() {
-        localStorage.setItem('att-veiculo', 1);
-        console.log(localStorage.getItem('att-veiculo'))
-        setIsModalEditVeiculoVisible(true);
-    }
-
     useEffect(buscarVeiculos, [ListaVeiculos]);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
     const [isModalAddVeiculoVisible, setIsModalAddVeiculoVisible] = useState(false);
-    const [isModalEditVeiculoVisible, setIsModalEditVeiculoVisible] = useState(false);
 
 
     return (
@@ -130,11 +121,8 @@ export default function ListarVeiculos() {
                     <p className="pVeiculo">Veículos</p>
 
                     <div className="input-e-btn">
-                        <button className='btnAddVeiculo' type='submit' onClick={() => setIsModalAddVeiculoVisible(true)}>
-                            <div className="conteudoBtnAddVeiculo">
+                        <button className='btnAdd' type='submit' onClick={() => setIsModalAddVeiculoVisible(true)}>
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
-                                <p className="pAddVeiculo">Novo veículo</p>
-                            </div>
                         </button>{isModalAddVeiculoVisible ? (<ModalAddVeiculo onClose={() => setIsModalAddVeiculoVisible(false)}></ModalAddVeiculo>) : null}
 
                         <div className="input-e-btn-2">
@@ -195,11 +183,7 @@ export default function ListarVeiculos() {
                                                 </div>
                                             </div>
                                             <div className="iconesEtiquetaVeiculos">
-                                                <div>
-                                                    <FontAwesomeIcon id={veiculo.idVeiculo} className="iconPenToSquare" icon={faPenToSquare} style={{ cursor: 'pointer' }} size="2x" onClick={AlterarLocal} />{isModalEditVeiculoVisible ? (<ModalEditVeiculo onClose={() => setIsModalEditVeiculoVisible(false)}></ModalEditVeiculo>) : null}
-                                                </div>
-                                                <FontAwesomeIcon className="iconTrashCan" icon={faTrashCan} style={{ cursor: 'pointer' }} size="2x"
-                                                    onClick={() => DeletarVeiculo(veiculo.idVeiculo)} />
+                                                <FontAwesomeIcon className="iconTrashCan" icon={faTrashCan} style={{ cursor: 'pointer' }} size="2x" onClick={() => DeletarVeiculo(veiculo.idVeiculo)} />
                                             </div>
                                         </div>
                                     </div>

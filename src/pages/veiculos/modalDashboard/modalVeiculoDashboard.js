@@ -7,18 +7,22 @@ import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const Modal = ({ onClose = () => { } }) => {
-    
+
     return (
         <div className="modalVeiculoDashboard">
             <div className="wrapperModalVeiculoDashboard">
                 <div className="headerModal">
-                    <p className="pHeaderModal">CADASTRO DE VEÍCULO</p>
+                    <p className="pHeaderModal">ADICIONAR VEÍCULO</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className="conteudos">
                     <div className="conteudo">
-                        <div className='imgCadastrarVeiculoDashboard'><FontAwesomeIcon icon={faImage} color="white" size="5x" /></div>
-
+                        <div className='ajustaImgs'>
+                            <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                            <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                            <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                            <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                        </div>
                         <form className='formularioCadastroVeiculoDashboard'>
                             <div className='juntaInputs'>
                                 <div className='inputs-esq'>
@@ -39,7 +43,7 @@ const Modal = ({ onClose = () => { } }) => {
                                     <select className='inputVeiculoDashboard selectsVeiculoDashboard' type='text' name='carga' required>
                                         <option value='' disabled selected>Carga</option>
                                     </select>
-                                    <div className='inputVeiculoDashboardEspaco'/>
+                                    <div className='inputVeiculoDashboardEspaco' />
                                 </div>
                             </div>
                         </form>

@@ -119,26 +119,23 @@ export default function Modal({ onClose = () => { } }) {
 
     useEffect(() => { BuscarForms() }, []);
 
-    function log() {
-        console.log(Placa)
-    }
-
-    useEffect(log, [Placa])
-
     return (
         <div className="modalVeiculoDashboard">
             <div className="wrapperModalVeiculoDashboard">
                 <div className="headerModal">
-                    <p className="pHeaderModal">CADASTRO DE VEÍCULO</p>
+                    <p className="pHeaderModal">ADICIONAR VEÍCULO</p>
                     <FontAwesomeIcon onClick={onClose} className="iconClose" icon={faClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className="conteudos">
                     <div className="conteudo">
                         <form form encType="multipart/form-data" className='formularioCadastroVeiculoDashboard'>
                             <div className='juntaInputs'>
-                                <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg">
-                                    {/* <FontAwesomeIcon icon={faImage} color="white" size="5x" /> */}
-                                </input>
+                                <div className='ajustaImgs'>
+                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                                </div>
                                 <div className='inputs-esq'>
                                     <MaskedInputPlaca className='inputVeiculoDashboard' mask="aaa-9999" placeholder='Placa' name='placa' onChange={(e) => setPlaca(e.target.value.toUpperCase())} />
                                     <select className='inputVeiculoDashboard selects' type='text' name='Marcas' placeholder='Marca' onChange={(e) => setMarca(e.target.value)}>

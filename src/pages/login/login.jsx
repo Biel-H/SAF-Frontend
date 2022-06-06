@@ -49,10 +49,6 @@ class Login extends React.Component {
         this.setState({ [campo.target.name]: campo.target.value });
     };
 
-    log = () => {
-        console.log(this.state.cpf)
-    }
-
     render() {
         return (
             <div>

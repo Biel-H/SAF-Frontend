@@ -209,7 +209,7 @@ body {
     color: #00000048;
 }
 
-.btnAddVeiculo {
+/* .btnAddVeiculo {
     width: 16%;
     height: 73px;
     background-color: #0E758C;
@@ -223,15 +223,15 @@ body {
 .btnAddVeiculo::after {
     background: none;
     padding: 0;
-}
+} */
 
-.conteudoBtnAddVeiculo {
+/* .conteudoBtnAddVeiculo {
     width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 .pAddVeiculo {
     font-family: 'Montserrat', sans-serif;

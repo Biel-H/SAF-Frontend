@@ -6,7 +6,6 @@ import Sidebar2 from '../../components/sidebars/sidebar2';
 import Footer from '../../components/footer';
 
 import Modal from './modal/modalCarrocerias';
-import ModalEdit from '../carrocerias/modalEdit/modalEditCarrocerias';
 
 import './carroceria.css';
 
@@ -16,7 +15,6 @@ import 'notyf/notyf.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
 export default function ListarCarroceria() {
     const [ListaCarroceria, setListaCarroceria] = useState([]);
@@ -61,7 +59,6 @@ export default function ListarCarroceria() {
     useEffect(buscarCarroceria, [ListaCarroceria]);
 
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [ListaEditCarroceria, setListaEditCarroceria] = useState(false);
 
 
     return (
@@ -74,11 +71,8 @@ export default function ListarCarroceria() {
                     <p className="pCarroceria">Carrocerias</p>
 
                     <div className="input-e-btn">
-                        <button className='btnAddCarroceria' type='submit' onClick={() => setIsModalVisible(true)}>
-                            <div className="conteudoBtnAddCarroceria">
+                        <button className='btnAdd' type='submit' onClick={() => setIsModalVisible(true)}>
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
-                                <p className="pAddCarroceria">Nova carroceria</p>
-                            </div>
                         </button>{isModalVisible ? (<Modal onClose={() => setIsModalVisible(false)}></Modal>) : null}
 
                         <div className="input-e-btn-2">
@@ -132,7 +126,6 @@ export default function ListarCarroceria() {
                                                 </div>
                                             </div>
                                             <div className="iconesEtiquetaCarrocerias">
-                                                <FontAwesomeIcon className="iconPenToSquare" icon={faPenToSquare} size="2x" style={{ cursor: 'pointer' }} onClick={() => setListaEditCarroceria(true)} />{ListaEditCarroceria ? (<ModalEdit onClose={() => setListaEditCarroceria(false)}></ModalEdit>) : null}
                                                 <FontAwesomeIcon className="iconTrashCan" icon={faTrashCan} size="2x" style={{ cursor: 'pointer' }}
                                                     onClick={() => deletar(carroceria.idCarroceria)} />
                                             </div>

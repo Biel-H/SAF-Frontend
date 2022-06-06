@@ -139,7 +139,7 @@ const Modal = ({ onClose = () => { }, children }) => {
         <div className="modalUsuario">
             <div className="wrapperModalUsuario">
                 <div className="headerModal">
-                    <p className="pHeaderModal">CADASTRO DE USUÁRIO</p>
+                    <p className="pHeaderModal">ADICIONAR USUÁRIO</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <form form encType="multipart/form-data" className="conteudoUsuario">

@@ -6,14 +6,12 @@ import Sidebar4 from '../../components/sidebars/sidebar4';
 import Footer from '../../components/footer';
 
 import ModalAddUsuario from '../usuarios/modal/modalUsuario';
-// import ModalEditUsuario from '../usuarios/modalEdit/modaEditUsuario';
 
 import './usuarios.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { useUpdateEffect } from 'rsuite/esm/utils';
 
 import { Notyf } from 'notyf';
@@ -137,7 +135,6 @@ export default function ListarUsuarios() {
     useUpdateEffect(PesquisaCPF,[Pesquisa]);
 
     const [isModalAddUsuarioVisible, setIsModalAddUsuarioVisible] = useState(false);
-    // const [isModalEditUsuarioVisible, setIsModalEditUsuarioVisible] = useState(false);
 
     return (
         <div className ="teste">
@@ -149,11 +146,8 @@ export default function ListarUsuarios() {
                     <p className="pUsuario">Usuários</p>
 
                     <div className="input-e-btn">
-                        <button className='btnAddUsuario' type='submit' onClick={() => setIsModalAddUsuarioVisible(true)} >
-                            <div className="conteudoBtnAddUsuario">
+                        <button className='btnAdd' type='submit' onClick={() => setIsModalAddUsuarioVisible(true)} >
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
-                                <p className="pAddUsuario">Novo usuário</p>
-                            </div>
                         </button>
                         <div className="input-e-btn-2">
                             <input onChange={(e) => setPesquisa(e.target.value)} className='inputBusca' type="text" />
@@ -208,7 +202,6 @@ export default function ListarUsuarios() {
                                                 </div>
                                             </div>
                                             <div className="iconesEtiquetaUsuarios">
-                                                <FontAwesomeIcon className="iconPenToSquare" icon={faPenToSquare} style={{ cursor: 'pointer' }} size="2x" />
                                                 <FontAwesomeIcon className="iconTrashCan" style={{ cursor: 'pointer' }} icon={faTrashCan} size="2x"
                                                     onClick={() => DeletarUsuario(usuario.idUsuario)} />
                                             </div>

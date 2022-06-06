@@ -102,11 +102,8 @@ export default function ListarCarga() {
                     <p className="pCarga">Cargas</p>
 
                     <div className="input-e-btn">
-                        <button className='btnAddCarga' type='button' onClick={() => setIsModalVisible(true)}>
-                            <div className="conteudoBtnAddCarga">
+                        <button className='btnAdd' type='button' onClick={() => setIsModalVisible(true)}>
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
-                                <p className="pAddCarga">Nova carga</p>
-                            </div>
                         </button>{isModalVisible ? (<Modal onClose={() => setIsModalVisible(false)}></Modal>) : null}
 
                         <div className="input-e-btn-2">

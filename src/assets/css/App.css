@@ -81,6 +81,22 @@ nav {
   width: 100%;
 }
 
+.btnAdd {
+  width: 150px;
+  height: 73px;
+  background-color: #0E758C;
+  border-radius: 10px;
+}
+
+.btnAdd:hover {
+  opacity: 0.9;
+}
+
+.btnAdd::after {
+  background: none;
+  padding: 0;
+}
+
 footer {
   height: 115px;
   background-color: #0E758C;

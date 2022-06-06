@@ -7,16 +7,12 @@ import Header from '../../components/headers/header';
 import Sidebar5 from '../../components/sidebars/sidebar5';
 import Footer from '../../components/footer';
 
-import ModalErro from '../checklists/modalChecklistErros/modalChecklistErro';
-import ModalCorrecao from '../checklists/modalChecklistCorrecao/modalChecklistCorrecao';
-
 import axios from 'axios';
 
 import './checklist.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
 import { useUpdateEffect } from 'rsuite/esm/utils';
 
 
@@ -25,15 +21,12 @@ export default function Checklists() {
     const notyf = new Notyf();
 
     const [ListaCheckList, setListaChecklist] = useState([]);
-    const [ListaChecklistErro, setListaChecklistErro] = useState(false);
-    const [ListaChecklistCorrecao, setListaChecklistCorrecao] = useState(false);
-    const [QntdErros, setQntdErros] = useState([]);
-    const [QntdCorrecoes, setQntdCorrecoes] = useState([]);
 
     const [Pesquisa, setPesquisa] = useState('');
     const [ListaPlacas] = useState([]);
     const [ListaVeiculos, setListaVeiculos] = useState([]);
     const [isSearch, setIsSearch] = useState(false);
+    const [Percentual, setPercentual] = useState(false);
 
     function PesquisaPlaca() {
 
@@ -86,13 +79,22 @@ export default function Checklists() {
     }
 
     function buscarChecklists() {
-        axios('https://backend-saf-api.azurewebsites.net/api/CheckList',)
+        axios('https://backend-saf-api.azurewebsites.net/api/CheckList/ListarMenoresCorrespondentes/70',)
             .then(response => {
                 if (response.status === 200) {
-                    setListaChecklist(response.data);
+                    console.log(response.data)
+                    // setListaChecklist(response.data);
                 }
             })
             .catch(erro => console.log(erro));
+
+            // axios('https://backend-saf-api.azurewebsites.net/api/CheckList/ListagemMenoresCorrespondentes/' + Percentual,)
+            // .then(response => {
+            //     if (response.status === 200) {
+            //         console.log(response.data)
+            //     }
+            // })
+            // .catch(erro => console.log(erro));
 
         axios.get('https://backend-saf-api.azurewebsites.net/api/Veiculos')
             .then(response => {
@@ -102,33 +104,13 @@ export default function Checklists() {
             })
     };
 
-    function buscarContagemErros() {
-        axios('https://backend-saf-api.azurewebsites.net/api/Erro/Contagem/1?idChecklsist=1')
-            .then(response => {
-                if (response.status === 200) {
-                    setQntdErros(response.data);
-                }
-            })
-            .catch(erro => console.log(erro));
-    }
-
-    function buscarContagemCorrecoes() {
-        axios('https://backend-saf-api.azurewebsites.net/api/Correcao/Contagem/1')
-            .then(response => {
-                if (response.status === 200) {
-                    setQntdCorrecoes(response.data);
-                }
-            })
-            .catch(erro => console.log(erro));
-    }
-
     function deletar(idChecklist) {
         axios.delete('https://backend-saf-api.azurewebsites.net/api/CheckList/' + idChecklist)
             .then(resposta => {
                 if (resposta.status === 204) {
                     notyf.success(
                         {
-                            message: 'Carroceria excluída com êxito',
+                            message: 'Checklist excluído com êxito',
                             duration: 3000,
                             position: {
                                 x: 'right',
@@ -141,10 +123,6 @@ export default function Checklists() {
             )
     }
 
-
-
-    useEffect(buscarContagemErros, []);
-    useEffect(buscarContagemCorrecoes, []);
     useEffect(buscarChecklists, [ListaCheckList]);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
@@ -181,6 +159,9 @@ export default function Checklists() {
                                     <div className="etiquetaCabecalhoChecklist">
                                         <p className="nomeCabecalhoEtiquetaChecklist">Data</p>
                                     </div>
+                                    <div className="etiquetaCabecalhoChecklist">
+                                        <p className="nomeCabecalhoEtiquetaChecklist">Percentual</p>
+                                    </div>
                                 </div>
                                 <div className="iconesEtiquetaChecklist" />
                             </div>
@@ -204,18 +185,13 @@ export default function Checklists() {
                                                     <div className="etiquetaChecklist">
                                                         <div className="nomeEtiquetaChecklist">{checklist.idVeiculoNavigation.placa}</div>
                                                     </div>
-                                                    <div className="etiquetaChecklist" style={{ cursor: 'pointer' }} onClick={() => setListaChecklistErro(true)}>
-                                                        <p className="nomeEtiquetaChecklist">{QntdErros}</p>
-                                                        <FontAwesomeIcon className="iconLupa" icon={faMagnifyingGlassPlus} style={{ cursor: 'pointer', color: '#FFF' }} size="lg" />
-                                                    </div>
-                                                    <div className="etiquetaChecklist campoCorrecao" style={{ cursor: 'pointer' }} onClick={() => setListaChecklistCorrecao(true)}>
-                                                        <div className="nomeEtiqueta">{QntdCorrecoes}</div>
-                                                        <FontAwesomeIcon className="iconLupa" icon={faMagnifyingGlassPlus} style={{ cursor: 'pointer', color: '#FFF' }} size="lg" />
-                                                    </div>
                                                     <div className="etiquetaChecklist">
                                                         <p className="nomeEtiquetaChecklist">{Intl.DateTimeFormat("pt-BR", {
                                                             year: 'numeric', month: 'numeric', day: 'numeric'
                                                         }).format(new Date(checklist.dataCheckList))}</p>
+                                                    </div>
+                                                    <div className="etiquetaChecklist">
+                                                        <p className="nomeEtiquetaChecklist">Percentual</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,8 +205,6 @@ export default function Checklists() {
                         })
                     }
                 </div>
-                {ListaChecklistErro ? (<ModalErro onClose={() => setListaChecklistErro(false)}></ModalErro>) : null}
-                {ListaChecklistCorrecao ? (<ModalCorrecao onClose={() => setListaChecklistCorrecao(false)}></ModalCorrecao>) : null}
 
             </main>
             <Footer />
