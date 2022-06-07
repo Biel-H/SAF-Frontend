@@ -32,7 +32,7 @@ export default function Comparacao() {
     const [Media, setMedia] = useState('');
 
     function BuscarChecklist() {
-        axios('http://backend-saf-api.azurewebsites.net/api/CheckList/' + 17)
+        axios('https://backend-saf-api.azurewebsites.net/api/CheckList/' + 20)
             .then(response => {
                 if (response.status == 200) {
                     console.log(response.data)

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
 
@@ -10,12 +11,15 @@ import 'notyf/notyf.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
+
 const Modal = ({ onClose = () => { } }) => {
 
-    const [IdVeiculo, setIdVeiculo] = useState('7');
-    const [IdChecklist, setIdChecklist] = useState('17');
+    const [IdVeiculo, setIdVeiculo] = useState('4');
+    const [IdChecklist, setIdChecklist] = useState('12');
 
     const notyf = new Notyf();
+
+    const history = useHistory();
 
     async function AlterarStatusVeiculo() {
 
@@ -24,10 +28,9 @@ const Modal = ({ onClose = () => { } }) => {
                 "idStatus": 3
             })
             .then(response => {
+                history.push("/checklists");
                 if (response.status == 200) {
-
-
-                    onClose()
+                    onClose();
                     notyf.success(
                         {
                             message: 'Veículo enviado para manutenção',
@@ -37,26 +40,28 @@ const Modal = ({ onClose = () => { } }) => {
                                 y: 'top',
                             }
                         }
-                    );
-                }
-            })
-    }
-
-    function AprovarChecklist() {
-        axios.patch('http://backend-saf-api.azurewebsites.net/api/CheckList/AprovaChecklist/' + IdChecklist)
-            .then(response => {
-                if (response.status == 200) {
-                    onClose()
-                    notyf.success(
-                        {
-                            message: 'CheckListAprovada',
-                            duration: 3000,
-                            position: {
-                                x: 'right',
+                        );
+                    }
+                })
+            }
+            
+            function AprovarChecklist() {
+                axios.patch('https://backend-saf-api.azurewebsites.net/api/CheckList/AprovaChecklist/' + IdChecklist)
+                .then(response => {
+                    history.push("/checklists");
+                    if (response.status == 200) {
+                        onClose()
+                        notyf.success(
+                            {
+                                message: 'CheckList aprovada.',
+                                duration: 3000,
+                                position: {
+                                    x: 'right',
                                 y: 'top',
                             }
                         }
                     );
+                    this.history.push('/checklists')
                 }
             })
     }

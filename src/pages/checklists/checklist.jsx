@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 
 import { Link } from 'react-router-dom';
 
@@ -23,6 +24,8 @@ export default function Checklists() {
 
     const notyf = new Notyf();
 
+    const history = useHistory();
+
     const [ListaCheckList, setListaChecklist] = useState([]);
 
     const [Pesquisa, setPesquisa] = useState('');
@@ -30,6 +33,10 @@ export default function Checklists() {
     const [ListaVeiculos, setListaVeiculos] = useState([]);
     const [isSearch, setIsSearch] = useState(false);
     const [Percentual, setPercentual] = useState(false);
+
+    function mandarInfos () {
+        history.push("/compararImgs");
+    }
 
     function PesquisaPlaca() {
 
@@ -122,7 +129,7 @@ export default function Checklists() {
         localStorage.setItem('idCheckListView', id)
     }
 
-    useEffect(buscarChecklists, []);
+    useEffect(buscarChecklists, [ListaCheckList]);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
     return (
@@ -208,7 +215,7 @@ export default function Checklists() {
                                                     </div>
                                                 </div>
                                                 <div id='abrirChecklist' className='iconeSeta'>
-                                                    <div id={checklist.idCheckList} onClick={attLocalChecklist(checklist.idCheckList)} className="nomeEtiquetaChecklist">
+                                                    <div id={checklist.idCheckList} onClick={attLocalChecklist(checklist.idCheckList)} className="nomeEtiquetaChecklist" onClick={(e) => mandarInfos(e)}>
                                                         <Link to="/compararImgs"><FontAwesomeIcon id="setasChecklist" className="iconeSeta" icon={faArrowAltCircleRight} style={{ cursor: 'pointer', color: '#0E758C' }}></FontAwesomeIcon></Link>
                                                     </div>
                                                 </div>
