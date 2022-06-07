@@ -56,7 +56,7 @@ export default function ListarCarroceria() {
             .then(buscarCarroceria);
     };
 
-    useEffect(buscarCarroceria, [ListaCarroceria]);
+    useEffect(buscarCarroceria, []);
 
     const [isModalVisible, setIsModalVisible] = useState(false);
 

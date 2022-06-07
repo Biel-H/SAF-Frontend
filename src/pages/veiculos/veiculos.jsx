@@ -6,6 +6,7 @@ import Sidebar1 from '../../components/sidebars/sidebar1';
 import Footer from '../../components/footer';
 
 import ModalAddVeiculo from '../veiculos/modal/modalVeiculo';
+import MaskedInputPlaca from './MaskedInputPlaca';
 
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -41,9 +42,9 @@ export default function ListarVeiculos() {
                 let tamanhoArray = veiculoString.split(',').length
 
                 //Verificar se a quantidade é igual a 30(Sem imagem)
-                if (tamanhoArray === 30) {
+                if (tamanhoArray === 34) {
                     //Pega a placa da string e coloca ela na lista de placas
-                    ListaPlacas.push(veiculoString.split(',')[6].split(':')[1].replace('"', "").split('"')[0])
+                    ListaPlacas.push(veiculoString.split(',')[10].split(':')[1].replace('"', "").split('"')[0])
                 }
 
                 //Com imagem
@@ -51,7 +52,6 @@ export default function ListarVeiculos() {
                     //Pega a placa da string e coloca ela na lista de placas
                     ListaPlacas.push(veiculoString.split(',')[7].split(':')[1].replace('"', "").split('"')[0])
                 }
-                console.log(ListaPlacas.length)
             }
             setIsSearch(true);
         }
@@ -59,7 +59,6 @@ export default function ListarVeiculos() {
         //Verifica se as letras digitadas correspondem a alguma placa da lista de placas
         for (let i = 0; i < ListaPlacas.length; i++) {
             //Se Corresponde
-            console.log('Entrou no for '+i+' Vezes')
             if (ListaPlacas[i].match(Pesquisa)) {
                 //Torna o item visivel
                 document.getElementById(ListaPlacas[i]).style.display = "initial"
@@ -81,6 +80,7 @@ export default function ListarVeiculos() {
             .then(response => {
                 if (response.status === 200) {
                     setListaVeiculos(response.data);
+                    console.log(response.data)
                 }
             })
             .catch(erro => console.log(erro));
@@ -105,7 +105,9 @@ export default function ListarVeiculos() {
             })
     }
 
-    useEffect(buscarVeiculos, [ListaVeiculos]);
+
+
+    useEffect(buscarVeiculos, []);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
     const [isModalAddVeiculoVisible, setIsModalAddVeiculoVisible] = useState(false);
@@ -122,12 +124,11 @@ export default function ListarVeiculos() {
 
                     <div className="input-e-btn">
                         <button className='btnAdd' type='submit' onClick={() => setIsModalAddVeiculoVisible(true)}>
-                                <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
+                            <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
                         </button>{isModalAddVeiculoVisible ? (<ModalAddVeiculo onClose={() => setIsModalAddVeiculoVisible(false)}></ModalAddVeiculo>) : null}
 
                         <div className="input-e-btn-2">
                             <input onChange={(e) => setPesquisa(e.target.value.toUpperCase())} className='inputBusca' type="text" placeholder="Pesquisar" />
-                            <button onClick={PesquisaPlaca} className='btnBuscar' type='button'>Buscar</button>
                         </div>
                     </div>
 
@@ -161,8 +162,8 @@ export default function ListarVeiculos() {
                                         <div className="conteudoVeiculo">
                                             <div className="alinharEtiquetas">
                                                 {
-                                                    veiculo.imagemVeiculo != null ?
-                                                        < img alt='Imagem do Veiculo' src={"http://backend-saf-api.azurewebsites.net/Img/" + veiculo.imagemVeiculo} className="imgVeiculo" /> :
+                                                    veiculo.imagemFrontalPadrao != null ?
+                                                        < img alt='Imagem do Veiculo' src={"http://backend-saf-api.azurewebsites.net/Img/" + veiculo.imagemFrontalPadrao} className="imgVeiculo" /> :
                                                         < img alt='Imagem do Veiculo' src={"http://backend-saf-api.azurewebsites.net/Img/Veiculopadrao.png"} className="imgVeiculo" />
                                                 }
                                                 <div className="etiquetasVeiculos">

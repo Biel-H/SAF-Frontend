@@ -6,6 +6,7 @@ import Sidebar4 from '../../components/sidebars/sidebar4';
 import Footer from '../../components/footer';
 
 import ModalAddUsuario from '../usuarios/modal/modalUsuario';
+import MaskedInput from '../login/MaskedInput';
 
 import './usuarios.css';
 
@@ -131,7 +132,7 @@ export default function ListarUsuarios() {
             .catch(erro => console.log(erro))
     };
 
-    useEffect(buscarUsuarios, [ListaUsuarios]);
+    useEffect(buscarUsuarios, []);
     useUpdateEffect(PesquisaCPF,[Pesquisa]);
 
     const [isModalAddUsuarioVisible, setIsModalAddUsuarioVisible] = useState(false);
@@ -150,8 +151,7 @@ export default function ListarUsuarios() {
                                 <FontAwesomeIcon icon={faPlus} color="#fff" size="4x" />
                         </button>
                         <div className="input-e-btn-2">
-                            <input onChange={(e) => setPesquisa(e.target.value)} className='inputBusca' type="text" />
-                            <button onClick={PesquisaCPF} className='btnBuscar' type='submit'><p>Buscar</p></button>
+                        <MaskedInput className="inputBusca" name="cpf" mask="999.999.999-99" onChange={(e) => setPesquisa(e.target.value)} placeholder="Busque por CPF" />
                         </div>
                     </div>
                     <div className="cardCabecalhoUsuario">

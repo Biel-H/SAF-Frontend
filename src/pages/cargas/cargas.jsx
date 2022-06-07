@@ -85,7 +85,7 @@ export default function ListarCarga() {
 
     };
 
-    useEffect(buscarCarga, [ListaCarga]);
+    useEffect(buscarCarga, []);
     useUpdateEffect(PesquisarCarga,[Pesquisa]);
 
 

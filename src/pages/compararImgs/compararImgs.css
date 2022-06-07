@@ -8,9 +8,13 @@
     /* background-color: red; */
     margin: 0 auto;
     width: 80%;
-    height: 1000px;
-    padding-top: 200px;
+    padding-top: 4vh;
+}
 
+.setaComparacao{
+    margin-bottom: 5vw;
+    width: 3vw;
+    height: auto;
 }
 
 .quadrados {
@@ -26,7 +30,6 @@
 
 .quadrado {
     width: 90%;
-    height: 400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -34,10 +37,24 @@
     margin-bottom: 30px;
 }
 
+.basePorcentagens{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.basePorcentagens p{
+    font-size: 1.2vw;
+font-weight: 500;
+}
+
 .imgQuadrado {
-    background-color: gray;
-    width: 300px;
-    height: 300px;
+    width: 17vw;
+    height: 13vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0E758C
 }
 
 .percentual {
@@ -46,13 +63,18 @@
     font-weight: 500;
 }
 
+.cam{
+    width: auto;
+    height: 100%;
+}
+
 .btns {
-    width: 650px;
+    width: 40vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
-    padding: 30px;
+    padding: 1.2vh;
     border: 2px solid #0E758C;
 }
 

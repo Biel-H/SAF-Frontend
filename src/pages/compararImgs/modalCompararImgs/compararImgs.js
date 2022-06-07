@@ -12,27 +12,52 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ onClose = () => { } }) => {
 
-    const [AlterarEstado, setAlterarEstado] = useState('');
+    const [IdVeiculo, setIdVeiculo] = useState('7');
+    const [IdChecklist, setIdChecklist] = useState('17');
 
     const notyf = new Notyf();
 
     async function AlterarStatusVeiculo() {
 
-        axios.patch('https://backend-saf-api.azurewebsites.net/AtualizarStatus/3',
-        )
+        axios.patch('https://backend-saf-api.azurewebsites.net/AtualizarStatus/' + IdVeiculo,
+            {
+                "idStatus": 3
+            })
             .then(response => {
-                setAlterarEstado(response.data)
-                onClose()
-                notyf.success(
-                    {
-                        message: 'Veículo enviado para manutenção',
-                        duration: 3000,
-                        position: {
-                            x: 'right',
-                            y: 'top',
+                if (response.status == 200) {
+
+
+                    onClose()
+                    notyf.success(
+                        {
+                            message: 'Veículo enviado para manutenção',
+                            duration: 3000,
+                            position: {
+                                x: 'right',
+                                y: 'top',
+                            }
                         }
-                    }
-                );
+                    );
+                }
+            })
+    }
+
+    function AprovarChecklist() {
+        axios.patch('http://backend-saf-api.azurewebsites.net/api/CheckList/AprovaChecklist/' + IdChecklist)
+            .then(response => {
+                if (response.status == 200) {
+                    onClose()
+                    notyf.success(
+                        {
+                            message: 'CheckListAprovada',
+                            duration: 3000,
+                            position: {
+                                x: 'right',
+                                y: 'top',
+                            }
+                        }
+                    );
+                }
             })
     }
 
@@ -44,12 +69,12 @@ const Modal = ({ onClose = () => { } }) => {
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className='h2Modal'>
-                    <h2 className='h2Modal'>O veículo será enviado para manutenção. Continuar?</h2>
+                    <h2 className='h2Modal'>As imagens anteriores conferem?</h2>
                 </div>
 
                 <div className="btns_confirmacao">
-                    <button className='btn_confirmacao1' onClick={AlterarEstado} type='submit'><p className='pBtnConfirmacao'>Sim</p></button>
-                    <button className='btn_confirmacao2' onClick={onClose} type='submit'><p className='pBtnConfirmacao'>Não</p></button>
+                    <button className='btn_confirmacao1' onClick={AprovarChecklist} type='submit'><p className='pBtnConfirmacao'>Sim</p></button>
+                    <button className='btn_confirmacao2' onClick={AlterarStatusVeiculo} type='submit'><p className='pBtnConfirmacao'>Não</p></button>
                 </div>
             </div>
         </div >

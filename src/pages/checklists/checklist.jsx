@@ -81,6 +81,7 @@ export default function Checklists() {
         }
     }
 
+
     function buscarChecklists() {
         axios('https://backend-saf-api.azurewebsites.net/ListarMenoresCorrespondentes/70',)
             .then(response => {
@@ -117,14 +118,17 @@ export default function Checklists() {
             )
     }
 
-    useEffect(buscarChecklists, [ListaCheckList]);
+    function attLocalChecklist(id) {
+        localStorage.setItem('idCheckListView', id)
+    }
+
+    useEffect(buscarChecklists, []);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
     return (
         <div>
             <Sidebar5 />
             <Header />
-
             <main>
                 <div className="wrapperChecklist">
                     <p className="pChecklist">Checklists</p>
@@ -203,9 +207,9 @@ export default function Checklists() {
 
                                                     </div>
                                                 </div>
-                                                <div className='iconeSeta'>
-                                                    <div className="nomeEtiquetaChecklist">
-                                                        <Link to="/compararImgs"><FontAwesomeIcon className="iconeSeta" icon={faArrowAltCircleRight} style={{ cursor: 'pointer', color: '#0E758C' }}></FontAwesomeIcon></Link>
+                                                <div id='abrirChecklist' className='iconeSeta'>
+                                                    <div id={checklist.idCheckList} onClick={attLocalChecklist(checklist.idCheckList)} className="nomeEtiquetaChecklist">
+                                                        <Link to="/compararImgs"><FontAwesomeIcon id="setasChecklist" className="iconeSeta" icon={faArrowAltCircleRight} style={{ cursor: 'pointer', color: '#0E758C' }}></FontAwesomeIcon></Link>
                                                     </div>
                                                 </div>
                                             </div>

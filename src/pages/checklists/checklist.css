@@ -116,6 +116,10 @@ body {
     color: #0F282D;
 }
 
+#setasChecklist{
+    margin: unset;
+}
+
 .iconesEtiquetaChecklist {
     width: 6%;
     display: flex;
