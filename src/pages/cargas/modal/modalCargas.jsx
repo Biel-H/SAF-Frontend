@@ -61,16 +61,16 @@ const Modal = ({ onClose = () => { } }) => {
 
 
     return (
-        <div className="modal">
+        <div className="modalCarga">
             <div className="wrapperModalCargas">
                 <div className="headerModal">
                     <p className="pHeaderModal">CADASTRO DE CARGA</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className="conteudosCargas">
-                    <form className='conteudoCarga' onSubmit={CadastrarCarga}>
+                    <form className='conteudoCarga'>
                         <input required type='text' className='inputCarga' placeholder='Tipo de carga' onChange={(e) => setNovaCarga(e.target.value)} />
-                        <button className='btn_cadastroCarga' type='submit'><p className='pBtnCadastroCarga'>Cadastrar</p></button>
+                        <button onClick={(e) => CadastrarCarga(e)} className='btn_cadastroCarga' type='submit'><p className='pBtnCadastroCarga'>Cadastrar</p></button>
                     </form>
                 </div>
             </div>

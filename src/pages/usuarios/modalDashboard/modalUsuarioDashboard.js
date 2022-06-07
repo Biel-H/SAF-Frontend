@@ -11,10 +11,10 @@ import { faClose } from '@fortawesome/free-solid-svg-icons'
 const Modal = ({ onClose = () => { }, children }) => {
 
     return (
-        <div className="modalUsuario">
+        <div className="modalUsuarioDashboard">
             <div className="wrapperModalUsuarioDashboard">
                 <div className="headerModalUsuarioDashboard">
-                    <p className="pHeaderModal">CADASTRO DE USUÁRIO</p>
+                    <p className="pHeaderModalDashboard">ADICIONAR USUÁRIO</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className="conteudoUsuario">

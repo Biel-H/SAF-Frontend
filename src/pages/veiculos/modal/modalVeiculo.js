@@ -121,24 +121,18 @@ export default function Modal({ onClose = () => { } }) {
 
     return (
         <div className="modalVeiculo">
-            <div className="wrapperModalVeiculoDashboard">
+            <div className="wrapperModalVeiculo">
                 <div className="headerModalVeiculo">
-                    <p className="pHeaderModal">ADICIONAR VEÍCULO</p>
+                    <p className="pHeaderModalVeiculo">ADICIONAR VEÍCULO</p>
                     <FontAwesomeIcon onClick={onClose} className="iconClose" icon={faClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
                 <div className="conteudos">
                     <div className="conteudo">
                         <form form encType="multipart/form-data" className='formularioCadastroVeiculoDashboard'>
                             <div className='juntaInputs'>
-                                <div className='ajustaImgs'>
-                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
-                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
-                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
-                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
-                                </div>
                                 <div className='inputs-esq'>
-                                    <MaskedInputPlaca className='inputVeiculoDashboard' mask="aaa-9999" placeholder='Placa' name='placa' onChange={(e) => setPlaca(e.target.value.toUpperCase())} />
-                                    <select className='inputVeiculoDashboard selects' type='text' name='Marcas' placeholder='Marca' onChange={(e) => setMarca(e.target.value)}>
+                                    <MaskedInputPlaca className='inputVeiculo' mask="aaa-9999" placeholder='Placa' name='placa' onChange={(e) => setPlaca(e.target.value.toUpperCase())} />
+                                    <select className='inputVeiculo selects' type='text' name='Marcas' placeholder='Marca' onChange={(e) => setMarca(e.target.value)}>
                                         <option value='0' disabled selected >Marca</option>
                                         {Marcas.map((marca) => {
                                             return (
@@ -148,8 +142,8 @@ export default function Modal({ onClose = () => { } }) {
                                             )
                                         })}
                                     </select>
-                                    <input className='inputVeiculoDashboard' type='date' name='data' placeholder='Data de aquisição' onChange={(e) => setData(e.target.value)} />
-                                    <select className='inputVeiculoDashboard selects' type='text' name='Status' placeholder='Status' required onChange={(e) => setStatus(e.target.value)}>
+                                    <input className='inputVeiculo' type='date' name='data' placeholder='Data de aquisição' onChange={(e) => setData(e.target.value)} />
+                                    <select className='inputVeiculo selects' type='text' name='Status' placeholder='Status' required onChange={(e) => setStatus(e.target.value)}>
                                         <option value='0' disabled selected>Status</option>
                                         {TipoStatus.map((status) => {
                                             return (
@@ -161,7 +155,7 @@ export default function Modal({ onClose = () => { } }) {
                                     </select>
                                 </div>
                                 <div className='inputs-dir'>
-                                    <select className='inputVeiculoDashboard selects' type='text' name='TipoVeiculo' required onChange={(e) => setTipoVeiculo(e.target.value)}>
+                                    <select className='inputVeiculo selects' type='text' name='TipoVeiculo' onChange={(e) => setTipoVeiculo(e.target.value)}>
                                         <option value='0' disabled selected>Tipo de veículo</option>
                                         {TipoVeiculos.map((tipoVeiculo) => {
                                             return (
@@ -171,7 +165,7 @@ export default function Modal({ onClose = () => { } }) {
                                             )
                                         })}
                                     </select>
-                                    <select className='inputVeiculoDashboard selects' type='text' name='carroceria' required onChange={(e) => setIdCarroceria(e.target.value)}>
+                                    <select className='inputVeiculo selects' type='text' name='carroceria'>
                                         <option value='0' disabled selected>Carroceria</option>
                                         {Carrocerias.map((carroceria) => {
                                             return (
@@ -181,17 +175,8 @@ export default function Modal({ onClose = () => { } }) {
                                             )
                                         })}
                                     </select>
-                                    {/* <select className='inputVeiculoDashboard selects' type='text' name='TipoCargas' required onChange={(e) => setCarga(e.target.value)}>
-                                        <option value='0' disabled selected>Carga</option>
-                                        {TiposCargas.map((tipo) => {
-                                            return (
-                                                <option key={tipo.idTipoCarga} value={tipo.idTipoCarga}>
-                                                    {tipo.nomeTipoCarga}
-                                                </option>
-                                            )
-                                        })}
-                                    </select> */}
-                                    <button onClick={(e) => AdicionarVeiculo(e)} className='btn_cadastro_Dashboard' type="submit"><p className='pCadastro'>Cadastrar</p></button>
+                                    <input type="file" id="arquivo" className="imgCadastrarVeiculoDashboard" style={{ cursor: 'pointer' }} accept="image/png; image/jpeg" />
+                                    <button onClick={(e) => AdicionarVeiculo(e)} className='btn_cadastroVeiculo' type="submit"><p className='pCadastro'>Cadastrar</p></button>
                                 </div>
                             </div>
                         </form>

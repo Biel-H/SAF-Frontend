@@ -1,12 +1,12 @@
-.modalUsuario {
+.modalUsuarioDashboard {
     width: 100%;
-    height: 385vh;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
     backdrop-filter: brightness(60%);
-    display: flex;
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
@@ -15,9 +15,9 @@
     background-color: #fff;
     width: 100%;
     color: #000;
-    height: 13%;
+    height: 600px;
     position: absolute;
-    top: 3.5%;
+    top: 150px;
     border-radius: 10px;
 }
 
@@ -29,6 +29,14 @@
     padding: 0 20px;
     justify-content: space-between;
     align-items: center;
+}
+
+.pHeaderModalDashboard {
+    font-size: 45px;
+    font-weight: 700;
+    color: #0E758C;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
 }
 
 .conteudoUsuario {

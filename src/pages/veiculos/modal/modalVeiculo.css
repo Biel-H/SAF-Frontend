@@ -11,21 +11,30 @@
      align-items: center;
  }
 
+ .wrapperModalVeiculo {
+    background-color: #fff;
+    width: 90%;
+    height: 600px;
+ }
+
  .headerModalVeiculo {
      background-color: #fff;
      width: 90%;
      color: #000;
      border-radius: 10px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 20px auto 0;
  }
 
- .pHeaderModal {
+ .pHeaderModalVeiculo {
      font-size: 45px;
      font-weight: 700;
      color: #0E758C;
      font-family: 'Montserrat', sans-serif;
      margin: 0 auto;
-     width: 100%;
-     background-color: red;
+     width: fit-content;
  }
 
  .conteudos {
@@ -100,7 +109,7 @@
  .inputVeiculo::placeholder {
      text-align: center;
      font-size: 25px;
-     color: #00000048;
+     color: #000;
  }
 
  .juntaInputs {
@@ -110,7 +119,7 @@
      width: 100%;
  }
 
- .btn_cadastro {
+ .btn_cadastroVeiculo {
      width: 60%;
      background-color: #0E758C;
      overflow: visible;

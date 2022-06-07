@@ -132,7 +132,7 @@ export default function ListarUsuarios() {
             .catch(erro => console.log(erro))
     };
 
-    useEffect(buscarUsuarios, []);
+    useEffect(buscarUsuarios, [ListaUsuarios]);
     useUpdateEffect(PesquisaCPF,[Pesquisa]);
 
     const [isModalAddUsuarioVisible, setIsModalAddUsuarioVisible] = useState(false);

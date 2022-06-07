@@ -80,7 +80,6 @@ export default function ListarVeiculos() {
             .then(response => {
                 if (response.status === 200) {
                     setListaVeiculos(response.data);
-                    console.log(response.data)
                 }
             })
             .catch(erro => console.log(erro));
@@ -107,7 +106,7 @@ export default function ListarVeiculos() {
 
 
 
-    useEffect(buscarVeiculos, []);
+    useEffect(buscarVeiculos, [ListaVeiculos]);
     useUpdateEffect(PesquisaPlaca, [Pesquisa]);
 
     const [isModalAddVeiculoVisible, setIsModalAddVeiculoVisible] = useState(false);

@@ -10,7 +10,6 @@ import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const Modal = ({ onClose = () => { }, children }) => {
@@ -59,7 +58,7 @@ const Modal = ({ onClose = () => { }, children }) => {
 
         var formData = new FormData();
 
-        const element = document.getElementById('ImagemUsuario')
+        const element = document.getElementById('imgCadastrarUsuario')
 
         const file = element.files[0]
         formData.append('arquivo', file, file.name);
@@ -84,7 +83,7 @@ const Modal = ({ onClose = () => { }, children }) => {
                         onClose()
                         notyf.success(
                             {
-                                message: 'Usuario cadastrado com êxito.',
+                                message: 'Usuário cadastrado com êxito.',
                                 duration: 3000,
                                 position: {
                                     x: 'right',
@@ -142,19 +141,16 @@ const Modal = ({ onClose = () => { }, children }) => {
                     <p className="pHeaderModal">ADICIONAR USUÁRIO</p>
                     <FontAwesomeIcon className="iconClose" icon={faClose} onClick={onClose} style={{ cursor: 'pointer' }} color="red" size="3x" />
                 </div>
-                <form form encType="multipart/form-data" className="conteudoUsuario">
-                    <input type="file" id="ImagemUsuario" accept="image/png; image/jpeg" className='imgCadastrar' style={{ cursor: 'pointer' }}>
-                        {/* <FontAwesomeIcon icon={faImage} color="white" size="5x" /> */}
-                    </input>
+                <form encType="multipart/form-data" className="conteudoUsuario">
                     <div className='formularioCadastro'>
                         <div className='juntaInputsUsuario'>
                             <div className='inputs-esq'>
-                                <input className='inputUsuario' type='text' name='nome' placeholder='Nome' required onChange={(e) => setNome(e.target.value)} />
-                                <MaskedInput className='inputUsuario' placeholder='CPF' name='cpf' mask="999.999.999-99" value={CPF} required onChange={(e) => setCPF(e.target.value)} />
-                                <input className='inputUsuario' type='password' placeholder='Senha' name='senha' required onChange={(e) => setSenha(e.target.value)} />
+                                <input className='inputUsuario' type='text' name='nome' placeholder='Nome' onChange={(e) => setNome(e.target.value)} />
+                                <MaskedInput className='inputUsuario' placeholder='CPF' name='cpf' mask="999.999.999-99" value={CPF} onChange={(e) => setCPF(e.target.value)} />
+                                <input className='inputUsuario' type='password' placeholder='Senha' name='senha' onChange={(e) => setSenha(e.target.value)} />
                             </div>
                             <div className='inputs-dir'>
-                                <input className='inputUsuario' type='text' name='sobrenome' placeholder='Sobrenome' required onChange={(e) => setSobrenome(e.target.value)} />
+                                <input className='inputUsuario' type='text' name='sobrenome' placeholder='Sobrenome' onChange={(e) => setSobrenome(e.target.value)} />
                                 <select className='inputUsuario' type='text' name='Tipo de Usuário' onChange={(e) => setIdTipoUsuario(e.target.value)}>
                                     <option value='0' disabled selected >Tipo de usuário</option>
                                     {TiposUsuarios.map((tipoUsuario) => {
@@ -168,6 +164,8 @@ const Modal = ({ onClose = () => { }, children }) => {
                                 <MaskedInput className='inputUsuario' name="tel" placeholder='Telefone' mask="(99) 99999-9999" value={Digitado} onChange={(tel) => setDigitado(tel.target.value)} />
                             </div>
                         </div>
+
+                        <input type="file" accept="image/png; image/jpeg" id='imgCadastrarUsuario' style={{ cursor: 'pointer' }} />
                         <button onClick={(e) => CadastrarUsuario(e)} className='btn_cadastroUsuario' type='submit'>
                             <p className='pCadastro'>Cadastrar</p>
                         </button>
