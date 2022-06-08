@@ -14,7 +14,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ onClose = () => { } }) => {
 
-    const [IdVeiculo, setIdVeiculo] = useState('4');
+    const [IdVeiculo, setIdVeiculo] = useState('7');
     const [IdChecklist, setIdChecklist] = useState('12');
 
     const notyf = new Notyf();
